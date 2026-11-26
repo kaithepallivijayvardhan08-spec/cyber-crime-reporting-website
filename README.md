@@ -2190,9 +2190,15 @@ My aim is to keep improving my technical knowledge, build more meaningful applic
 
 ## 📜 LICENCE
 
-Add the applicable project licence here before publishing.
+This project is licensed under the **MIT Licence**.
 
-Do not claim a particular licence unless the repository contains the corresponding licence file.
+You are free to use, copy, modify, merge, publish, distribute, sublicense and/or sell copies of the software, subject to the conditions in the [LICENSE](LICENSE) file.
+
+The MIT Licence requires the copyright notice and permission notice to be included in copies or substantial portions of the software.
+
+**Copyright © 2026 Kaithepalli Vijay Vardhan.**
+
+> **Third-party materials:** Images, fonts, libraries, models and other third-party assets used by this project may have their own licences and usage conditions. The MIT Licence for this repository does not automatically relicense those materials.
 
 ---
 
