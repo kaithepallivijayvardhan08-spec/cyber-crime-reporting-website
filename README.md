@@ -1,4 +1,3 @@
-
 # 🛡️ CYBERSAFE: AI-BASED CYBERCRIME REPORTING WEB APPLICATION
 
 <p align="center">
@@ -54,7 +53,28 @@ CyberSafe combines a web-based complaint management system with AI-assisted inci
 
 ---
 
-## 🚨 02. THE PROBLEM I WANTED TO EXPLORE
+## 🖥️ 02. CYBERSAFE APPLICATION GALLERY
+
+Explore the CyberSafe application interface through the screenshots below.
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="cybersafe%20images/Screenshot%202026-11-26%20210406.png" width="100%" alt="CyberSafe Application Overview"/>
+<h3 align="center">🛡️ CyberSafe — Application Overview</h3>
+<p align="center">A visual preview of the CyberSafe web application and its interface.</p>
+</td>
+<td width="50%" align="center">
+<img src="cybersafe%20images/Screenshot%202026-11-26%20210531.png" width="100%" alt="CyberSafe Application Interface"/>
+<h3 align="center">💻 CyberSafe — Interface Preview</h3>
+<p align="center">An additional view showcasing the application's interface and design.</p>
+</td>
+</tr>
+</table>
+
+---
+
+## 🚨 03. THE PROBLEM I WANTED TO EXPLORE
 
 Cybercrime affects people through different types of digital attacks and online fraud.
 
@@ -73,7 +93,7 @@ CyberSafe was developed around that idea.
 
 ---
 
-## ✨ 03. CORE FEATURES
+## ✨ 04. CORE FEATURES
 
 ### 📝 Cybercrime Complaint Reporting
 
@@ -136,7 +156,7 @@ Emergency contact information includes:
 
 ---
 
-## 🧠 04. AI ARCHITECTURE
+## 🧠 05. AI ARCHITECTURE
 
 One of the most interesting parts of CyberSafe is the integration of a locally hosted language model into a Flask-based web application.
 
@@ -188,7 +208,7 @@ This gave me an opportunity to explore:
 
 ---
 
-## ⚙️ 05. TECHNOLOGY STACK
+## ⚙️ 06. TECHNOLOGY STACK
 
 | Technology | Purpose |
 |---|---|
@@ -227,7 +247,7 @@ The frontend communicates with the Flask backend through API requests. The backe
 
 ---
 
-## 🔐 06. SECURITY AND RESPONSIBLE DEVELOPMENT
+## 🔐 07. SECURITY AND RESPONSIBLE DEVELOPMENT
 
 CyberSafe is a cybersecurity-focused project, so application security is an important part of its design.
 
@@ -251,7 +271,7 @@ Before any real-world deployment, it would require independent security testing,
 
 ---
 
-## 📂 07. PROJECT STRUCTURE
+## 📂 08. PROJECT STRUCTURE
 
 ```text
 cyber-crime-reporting-website/
@@ -277,6 +297,10 @@ cyber-crime-reporting-website/
 │
 ├── tests/
 │
+├── cybersafe images/
+│   ├── Screenshot 2026-11-26 210406.png
+│   └── Screenshot 2026-11-26 210531.png
+│
 ├── .gitignore
 └── README.md
 ```
@@ -285,7 +309,7 @@ cyber-crime-reporting-website/
 
 ---
 
-## 🚀 08. GETTING STARTED
+## 🚀 09. GETTING STARTED
 
 ### Requirements
 
@@ -384,7 +408,7 @@ The exact startup requirements may depend on the current project configuration a
 
 ---
 
-## 🧪 09. TESTING AND VALIDATION
+## 🧪 10. TESTING AND VALIDATION
 
 Testing is important because an application should not be considered reliable simply because its interface works.
 
@@ -413,7 +437,7 @@ The project also requires database-backed testing with a dedicated test database
 
 ---
 
-## 🧠 10. HOW I APPROACH DEVELOPMENT
+## 🧠 11. HOW I APPROACH DEVELOPMENT
 
 I enjoy learning through practical implementation rather than limiting myself to theoretical explanations.
 
@@ -440,7 +464,7 @@ I believe debugging is an important part of learning. When something does not wo
 
 ---
 
-## 👨‍💻 11. ABOUT THE DEVELOPER
+## 👨‍💻 12. ABOUT THE DEVELOPER
 
 **Kaithepalli Vijay Vardhan**
 
@@ -517,7 +541,7 @@ My goal is to strengthen my technical knowledge by building useful applications,
 
 ---
 
-## 🔮 12. LIMITATIONS AND FUTURE IMPROVEMENTS
+## 🔮 13. LIMITATIONS AND FUTURE IMPROVEMENTS
 
 CyberSafe is an academic prototype. There are important areas that require further development before real-world deployment.
 
@@ -546,7 +570,7 @@ I believe being honest about limitations is part of responsible software develop
 
 ---
 
-## 📚 13. PROJECT PURPOSE AND ACADEMIC CONTEXT
+## 📚 14. PROJECT PURPOSE AND ACADEMIC CONTEXT
 
 **Project Title:** CyberSafe – AI-Based Cybercrime Reporting Web Application
 
@@ -562,7 +586,7 @@ It is intended for academic learning, demonstration and further experimentation.
 
 ---
 
-## 🌐 14. IMPORTANT CYBERCRIME RESOURCES
+## 🌐 15. IMPORTANT CYBERCRIME RESOURCES
 
 For actual cybercrime incidents in India, use official reporting channels.
 
@@ -577,7 +601,7 @@ CyberSafe is not an official government reporting portal. Users should report re
 
 ---
 
-## ❤️ 15. A PERSONAL NOTE
+## ❤️ 16. A PERSONAL NOTE
 
 CyberSafe represents my interest in combining Artificial Intelligence and Cybersecurity through practical software development.
 
