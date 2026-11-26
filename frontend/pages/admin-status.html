@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Status Management - CyberSafe</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .staff-page{padding:40px 0;min-height:70vh;background:#f6f8fa}
+    .staff-card{background:#fff;border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 5px 18px #16263a14}
+    .staff-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .staff-tools select,.staff-row select,.staff-row textarea{padding:10px;border:1px solid #ccd5dd;border-radius:7px}
+    .staff-row{display:grid;grid-template-columns:minmax(180px,1fr) minmax(160px,220px) minmax(200px,1fr) auto;gap:12px;align-items:center;border-top:1px solid #e5e9ed;padding:16px 0}
+    .staff-row textarea{width:100%;min-height:42px;resize:vertical}
+    .staff-muted{color:#64748b;font-size:.9rem}
+    #staffMessage{margin:12px 0}
+    @media(max-width:760px){.staff-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="navbar"><div class="container">
+    <div class="nav-brand"><h2>CyberSafe</h2></div>
+    <div class="nav-menu"><ul>
+      <li><a href="../index.html">Home</a></li><li><a href="my-complaints.html">My Complaints</a></li>
+    </ul></div>
+  </div></nav>
+  <main class="staff-page"><div class="container">
+    <header><h1>Complaint Status Management</h1><p>Review complaints and record status updates.</p></header>
+    <section class="staff-card">
+      <div class="staff-tools">
+        <label for="statusFilter">Filter:</label>
+        <select id="statusFilter">
+          <option value="all">All statuses</option><option value="pending">Pending</option>
+          <option value="under_review">Under review</option><option value="investigating">Investigating</option>
+          <option value="resolved">Resolved</option><option value="rejected">Rejected</option>
+        </select>
+        <button id="refreshComplaints" class="btn btn-primary" type="button">Refresh</button>
+      </div>
+      <p id="staffMessage" role="status" aria-live="polite"></p>
+      <div id="staffComplaints"></div>
+      <div class="staff-tools">
+        <button id="previousPage" class="btn" type="button">Previous</button>
+        <span id="pageInfo" class="staff-muted"></span>
+        <button id="nextPage" class="btn" type="button">Next</button>
+      </div>
+    </section>
+  </div></main>
+  <script src="../js/main.js"></script><script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script><script src="../js/admin-status.js"></script>
+</body>
+</html>

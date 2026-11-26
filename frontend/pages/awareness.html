@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Awareness - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="report-crime.html">Report Crime</a></li>
+                    <li><a href="awareness.html" class="active">Awareness</a></li>
+                    <li><a href="ai-insights.html">AI Insights</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth"></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Awareness Section -->
+    <section class="awareness-section">
+        <div class="container">
+            <div class="awareness-header">
+                <h1><i class="fas fa-shield-alt"></i> Cyber Awareness</h1>
+                <p>Stay informed, stay protected - Learn about cyber threats and prevention</p>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories-tabs">
+                <button class="category-tab active" data-category="all">All Articles</button>
+                <button class="category-tab" data-category="phishing">Phishing</button>
+                <button class="category-tab" data-category="fraud">Online Fraud</button>
+                <button class="category-tab" data-category="social">Social Media</button>
+                <button class="category-tab" data-category="banking">Banking Security</button>
+                <button class="category-tab" data-category="tips">Safety Tips</button>
+            </div>
+
+            <!-- Featured Article -->
+            <div class="featured-article" id="featuredArticle">
+                <div class="featured-content">
+                    <span class="featured-badge">Featured</span>
+                    <h2>10 Essential Cyber Security Tips</h2>
+                    <p>Learn how to protect yourself from evolving cyber threats with these expert-recommended security practices.</p>
+                    <button class="btn btn-primary" onclick="openArticle('cyber-security-tips')">Read More</button>
+                </div>
+                <div class="featured-image">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Articles will be loaded dynamically -->
+            </div>
+
+            <!-- Quick Tips Section -->
+            <div class="quick-tips">
+                <h3><i class="fas fa-lightbulb"></i> Quick Safety Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-lock"></i>
+                        <h4>Use Strong Passwords</h4>
+                        <p>Use a mix of letters, numbers, and special characters. Never reuse passwords across sites.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Enable 2FA</h4>
+                        <p>Two-factor authentication adds an extra layer of security to your accounts.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Verify Emails</h4>
+                        <p>Don't click on suspicious links. Always verify sender email addresses.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-download"></i>
+                        <h4>Safe Downloads</h4>
+                        <p>Only download software from official websites and verified sources.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Secure Wi-Fi</h4>
+                        <p>Avoid using public Wi-Fi for banking or sensitive transactions.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-backup"></i>
+                        <h4>Regular Backups</h4>
+                        <p>Keep regular backups of important data to prevent ransomware losses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Resources -->
+            <div class="video-resources">
+                <h3><i class="fas fa-video"></i> Educational Videos</h3>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                            <img src="https://img.youtube.com/vi/XDWRAx94Xk8/hqdefault.jpg" alt="CyberDost phishing awareness video thumbnail" onerror="this.style.display='none'">
+                        </div>
+                        <h4>Understanding Phishing Attacks</h4>
+                        <p>Learn how to identify and avoid phishing scams.</p>
+                        <a class="btn btn-outline btn-sm" href="https://www.youtube.com/watch?v=XDWRAx94Xk8" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                            <img src="https://img.youtube.com/vi/teiYbwEWijE/hqdefault.jpg" alt="CyberDost banking fraud awareness video thumbnail" onerror="this.style.display='none'">
+                        </div>
+                        <h4>Online Banking Security</h4>
+                        <p>Tips for safe online banking and digital payments.</p>
+                        <a class="btn btn-outline btn-sm" href="https://www.youtube.com/watch?v=teiYbwEWijE" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4>Social Media Privacy</h4>
+                        <p>Protect your privacy on social media platforms.</p>
+                        <a class="btn btn-outline btn-sm" href="https://www.youtube.com/channel/UCwNX6q3b_9mtKldvGoZZ7Gw/search?query=social%20media%20privacy" target="_blank" rel="noopener noreferrer">Watch Now <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloadable Resources -->
+            <div class="downloadable-resources">
+                <h3><i class="fas fa-download"></i> Downloadable Resources</h3>
+                <div class="resources-grid">
+                    <a href="../resources/cyber-safety-handbook.txt" class="resource-card" download>
+                        <i class="fas fa-file-alt"></i>
+                        <div>
+                            <h4>Cyber Safety Handbook</h4>
+                            <p>Practical account, device, and payment safety guide (TXT)</p>
+                        </div>
+                    </a>
+                    <a href="../resources/incident-response-checklist.txt" class="resource-card" download>
+                        <i class="fas fa-file-alt"></i>
+                        <div>
+                            <h4>Incident Response Checklist</h4>
+                            <p>Simple steps and evidence checklist (TXT)</p>
+                        </div>
+                    </a>
+                    <a href="../resources/official-reporting-resources.txt" class="resource-card" download>
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Official Reporting Resources</h4>
+                            <p>Verified India reporting links and contacts (TXT)</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="articleTitle"></h3>
+                <span class="close" onclick="closeModal(document.getElementById('articleModal'))">&times;</span>
+            </div>
+            <div class="modal-body" id="articleContent">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .awareness-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .awareness-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .awareness-header h1 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .awareness-header h1 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .categories-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .category-tab {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .category-tab:hover,
+        .category-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .featured-article {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .featured-content {
+            flex: 1;
+        }
+        
+        .featured-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .featured-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .featured-content p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .featured-image i {
+            font-size: 150px;
+            opacity: 0.3;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .article-image i {
+            font-size: 60px;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--light-color);
+            border-radius: 15px;
+            font-size: 0.7rem;
+            margin-bottom: 10px;
+        }
+        
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .article-content p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .quick-tips {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .quick-tips h3 {
+            margin-bottom: 25px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .tip-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--light-color);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .tip-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .tip-card i {
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+        
+        .tip-card h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .tip-card p {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            margin-bottom: 0;
+        }
+        
+        .video-resources {
+            margin-bottom: 40px;
+        }
+        
+        .video-resources h3 {
+            margin-bottom: 25px;
+        }
+        
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-thumbnail i {
+            z-index: 1;
+            font-size: 50px;
+            color: white;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .video-thumbnail:hover i {
+            transform: scale(1.1);
+        }
+        
+        .video-card h4 {
+            padding: 15px 15px 5px;
+            font-size: 1rem;
+        }
+        
+        .video-card p {
+            padding: 0 15px 15px;
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        .video-card .btn {
+            margin: 0 15px 15px;
+        }
+        
+        .downloadable-resources {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .downloadable-resources h3 {
+            margin-bottom: 25px;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+        
+        .resource-card:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .resource-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+        
+        .resource-card:hover i {
+            color: white;
+        }
+        
+        .resource-card h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .resource-card p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .modal-large {
+            max-width: 700px;
+        }
+        
+        @media (max-width: 768px) {
+            .featured-article {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+            
+            .featured-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .featured-image i {
+                font-size: 100px;
+                margin-top: 20px;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script>
+        // Articles data
+        const articles = [
+            {
+                id: 'cyber-security-tips',
+                title: '10 Essential Cyber Security Tips',
+                category: 'tips',
+                excerpt: 'Simple steps to keep your devices, accounts, and personal information safer online.',
+                content: '<h4>Keep Your Digital Life Safer</h4><ol><li>Use a unique password for each account.</li><li>Turn on two-factor authentication when available.</li><li>Keep your devices and apps updated.</li><li>Check links and senders before opening messages.</li><li>Never share passwords or one-time codes.</li><li>Use official apps and websites for payments.</li><li>Back up important files regularly.</li><li>Limit personal information shared publicly.</li><li>Use secure networks for sensitive activity.</li><li>Report suspicious messages and transactions quickly.</li></ol>'
+            },
+            {
+                id: 'phishing-attacks',
+                title: 'How to Identify Phishing Attacks',
+                category: 'phishing',
+                excerpt: 'Learn the tell-tale signs of phishing emails and messages to protect yourself.',
+                content: '<h4>Common Signs of Phishing</h4><ul><li>Suspicious sender email addresses</li><li>Urgent or threatening language</li><li>Requests for personal information</li><li>Poor grammar and spelling</li><li>Suspicious links or attachments</li></ul><h4>What to Do</h4><p>Never click on suspicious links. Report phishing attempts to the legitimate organization.</p>'
+            },
+            {
+                id: 'online-fraud-prevention',
+                title: 'Online Fraud Prevention Guide',
+                category: 'fraud',
+                excerpt: 'Essential tips to avoid falling victim to online scams and fraud.',
+                content: '<h4>Common Online Scams</h4><ul><li>Lottery scams</li><li>Romance scams</li><li>Investment fraud</li><li>Fake shopping websites</li></ul><h4>Prevention Tips</h4><p>Always verify websites before making payments. Use secure payment methods.</p>'
+            },
+            {
+                id: 'social-media-privacy',
+                title: 'Protecting Your Social Media Privacy',
+                category: 'social',
+                excerpt: 'Tips to keep your personal information safe on social platforms.',
+                content: '<h4>Privacy Settings</h4><ul><li>Review privacy settings regularly</li><li>Limit personal information shared</li><li>Be careful with location sharing</li><li>Think before posting</li></ul>'
+            },
+            {
+                id: 'banking-security',
+                title: 'Secure Online Banking Practices',
+                category: 'banking',
+                excerpt: 'Best practices for safe online banking and digital payments.',
+                content: '<h4>Banking Safety Tips</h4><ul><li>Use strong unique passwords</li><li>Enable transaction alerts</li><li>Never share OTPs</li><li>Use official banking apps only</li></ul>'
+            },
+            {
+                id: 'password-security',
+                title: 'Creating Unbreakable Passwords',
+                category: 'tips',
+                excerpt: 'How to create and manage strong passwords for all your accounts.',
+                content: '<h4>Password Best Practices</h4><ul><li>Use at least 12 characters</li><li>Mix uppercase, lowercase, numbers, symbols</li><li>Avoid common words</li><li>Use a password manager</li></ul>'
+            },
+            {
+                id: 'ransomware-protection',
+                title: 'Ransomware Protection Strategies',
+                category: 'tips',
+                excerpt: 'How to protect your data from ransomware attacks.',
+                content: '<h4>Protection Measures</h4><ul><li>Regular backups</li><li>Update software regularly</li><li>Use antivirus software</li><li>Be cautious with email attachments</li></ul>'
+            }
+        ];
+
+        let currentCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadArticles();
+            setupCategoryFilters();
+        });
+
+        function setupCategoryFilters() {
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentCategory = tab.dataset.category;
+                    loadArticles();
+                });
+            });
+        }
+
+        function loadArticles() {
+            const filteredArticles = currentCategory === 'all' 
+                ? articles 
+                : articles.filter(a => a.category === currentCategory);
+            
+            const grid = document.getElementById('articlesGrid');
+            grid.innerHTML = filteredArticles.map(article => `
+                <div class="article-card" onclick="openArticle('${article.id}')">
+                    <div class="article-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category">${article.category.toUpperCase()}</span>
+                        <h3>${article.title}</h3>
+                        <p>${article.excerpt}</p>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openArticle(articleId) {
+            const article = articles.find(a => a.id === articleId);
+            if (article) {
+                document.getElementById('articleTitle').textContent = article.title;
+                document.getElementById('articleContent').innerHTML = article.content;
+                openModal('articleModal');
+            }
+        }
+
+        function watchVideo(videoId) {
+            const videos = {
+                'phishing-guide': 'https://www.youtube.com/watch?v=XDWRAx94Xk8',
+                'banking-security': 'https://www.youtube.com/watch?v=teiYbwEWijE',
+                'social-media-privacy': 'https://www.youtube.com/channel/UCwNX6q3b_9mtKldvGoZZ7Gw/search?query=social%20media%20privacy'
+            };
+            const url = videos[videoId];
+            if (url) window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        window.openArticle = openArticle;
+        window.watchVideo = watchVideo;
+    </script>
+</body>
+</html>

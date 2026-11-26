@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="report-crime.html">Report Crime</a></li>
+                    <li><a href="my-complaints.html">My Complaints</a></li>
+                    <li><a href="ai-insights.html">AI Insights</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth">
+                <div class="dropdown">
+                    <button class="btn btn-outline" onclick="toggleDropdown()">
+                        <i class="fas fa-user"></i> <span id="userName">User</span>
+                    </button>
+                    <div class="dropdown-content" id="userDropdown">
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a>
+                        <a href="my-complaints.html"><i class="fas fa-file-alt"></i> My Complaints</a>
+                        <hr>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-wrapper">
+        <div class="dashboard-container">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h2>Welcome back, <span id="welcomeName">User</span>! 👋</h2>
+                <p>Here's what's happening with your cyber crime reports today.</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid" id="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Complaints</h3>
+                        <div class="stat-number" id="total-complaints">0</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> <span id="total-change">0</span>% from last month
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Complaints</h3>
+                        <div class="stat-number" id="active-complaints">0</div>
+                        <div class="stat-change">
+                            <i class="fas fa-minus"></i> Currently in process
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Resolved</h3>
+                        <div class="stat-number" id="resolved-complaints">0</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-check"></i> Successfully resolved
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Response Rate</h3>
+                        <div class="stat-number" id="response-rate">0%</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-clock"></i> Avg 48hr response
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> Crime Type Distribution</h3>
+                        <i class="fas fa-info-circle" title="Distribution of complaints by crime type"></i>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="crimeTypeChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-pie"></i> Complaint Status</h3>
+                        <i class="fas fa-info-circle" title="Current status of all complaints"></i>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Trends Chart -->
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <h3><i class="fas fa-chart-line"></i> Monthly Crime Trends</h3>
+                    <div>
+                        <button class="btn btn-sm" onclick="refreshDashboardData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-container" style="height: 350px;">
+                    <canvas id="monthlyTrendsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- AI Insights Section -->
+            <div class="ai-insights">
+                <h3><i class="fas fa-robot"></i> AI-Powered Insights</h3>
+                <div class="insights-content" id="ai-insights-content">
+                    <div class="insight-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Loading insights...</h4>
+                        <p>Please wait while we analyze your data</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Complaints Table -->
+            <div class="recent-complaints">
+                <div class="section-header">
+                    <h3><i class="fas fa-history"></i> Recent Complaints</h3>
+                    <a href="my-complaints.html" class="view-all-link">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="complaints-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Complaint No</th>
+                                <th>Crime Type</th>
+                                <th>Date Filed</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-complaints-body">
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Loading complaints...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="section-header">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    <p>File a new complaint or track existing ones</p>
+                </div>
+                <div class="actions-grid">
+                    <a href="report-crime.html" class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <h4>File Complaint</h4>
+                        <p>Report new cyber crime</p>
+                    </a>
+                    <a href="track-complaint.html" class="action-card">
+                        <i class="fas fa-search"></i>
+                        <h4>Track Complaint</h4>
+                        <p>Check complaint status</p>
+                    </a>
+                    <a href="ai-insights.html" class="action-card">
+                        <i class="fas fa-robot"></i>
+                        <h4>AI Analysis</h4>
+                        <p>Get crime insights</p>
+                    </a>
+                    <a href="awareness.html" class="action-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Awareness</h4>
+                        <p>Stay protected</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/dashboard.js"></script>
+    
+    <script>
+        // Display user name
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            if (user.full_name) {
+                document.getElementById('userName').textContent = user.full_name.split(' ')[0];
+                document.getElementById('welcomeName').textContent = user.full_name;
+            }
+        });
+    </script>
+</body>
+</html>

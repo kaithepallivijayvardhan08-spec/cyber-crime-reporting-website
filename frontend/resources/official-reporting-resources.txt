@@ -1,0 +1,21 @@
+CYBERSAFE - OFFICIAL CYBERCRIME REPORTING RESOURCES
+Reference links for users in India | Checked November 2026
+
+1. National Cyber Crime Reporting Portal
+https://www.cybercrime.gov.in/
+Government of India portal for reporting cybercrime. The portal says cybercrime complaints are handled by law-enforcement agencies/police. For emergencies, contact local police. The national cybercrime helpline listed by the portal is 1930.
+
+2. Cybercrime Portal - Frequently Asked Questions
+https://www.cybercrime.gov.in/webform/FAQ.aspx
+Official portal guidance about report categories, information to prepare, and complaint follow-up.
+
+3. CERT-In
+https://www.cert-in.org.in/
+Indian Computer Emergency Response Team information, advisories, and incident-reporting contacts. CERT-In reporting duties and timelines can depend on the type of organisation and incident; check its current official directions.
+
+4. CyberDost I4C official YouTube channel
+https://www.youtube.com/channel/UCwNX6q3b_9mtKldvGoZZ7Gw
+Cyber safety awareness videos from the Indian Cybercrime Coordination Centre (I4C), Ministry of Home Affairs.
+
+Important
+CyberSafe is an academic prototype. Complaints entered in this app remain in its own database and are not submitted to these official services. Use the official portal or relevant authority for a real incident. Verify contact information on official websites because it may change.

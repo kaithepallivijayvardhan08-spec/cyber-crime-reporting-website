@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Crime - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false">
+                <i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="report-crime.html" class="active">Report Crime</a></li>
+                    <li><a href="my-complaints.html">My Complaints</a></li>
+                    <li><a href="ai-insights.html">AI Insights</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth"></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Report Crime Section -->
+    <section class="report-section">
+        <div class="container">
+            <div class="report-header">
+                <h1><i class="fas fa-exclamation-triangle"></i> Report Cyber Crime</h1>
+                <p>Please provide detailed information about the incident. Your report will be kept confidential.</p>
+            </div>
+
+            <div class="report-container">
+                <form id="crimeReportForm" class="report-form" enctype="multipart/form-data">
+                    <!-- Crime Type Selection -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-tag"></i> Crime Details</h3>
+
+                        <div class="form-group">
+                            <label for="crime_type">
+                                Type of Cyber Crime <span class="required">*</span>
+                            </label>
+                            <select id="crime_type" name="crime_type" required>
+                                <option value="">Select crime type</option>
+                            </select>
+                            <div class="error-message" id="crime_type_error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">
+                                Description of Incident <span class="required">*</span>
+                            </label>
+                            <textarea id="description" name="description" rows="6"
+                                placeholder="Please provide detailed description of what happened, including:
+• How the incident occurred
+• Any suspicious links/emails/phone numbers
+• Any financial loss amount (if applicable)
+• Communication with the perpetrator
+• Any other relevant information"
+                                required></textarea>
+                            <small class="form-text">Minimum 20 characters. Max 5000 characters.</small>
+                            <div class="error-message" id="description_error"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="incident_date">
+                                    Date of Incident <span class="required">*</span>
+                                </label>
+                                <input type="date" id="incident_date" name="incident_date" required>
+                                <div class="error-message" id="incident_date_error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="incident_location">
+                                    Location of Incident <span class="required">*</span>
+                                </label>
+                                <input type="text" id="incident_location" name="incident_location"
+                                    placeholder="City, State, or specific location" required>
+                                <div class="error-message" id="incident_location_error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additional_info">Additional Information</label>
+                            <textarea id="additional_info" name="additional_info" rows="3"
+                                placeholder="Any other details you'd like to share (e.g., suspect information, witness details)"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- AI Analysis Section -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-robot"></i> AI-Powered Analysis</h3>
+                        <button type="button" id="analyzeWithAI" class="btn btn-outline">
+                            <i class="fas fa-microchip"></i> Analyze with AI
+                        </button>
+                        <div id="aiAnalysisResult" class="ai-analysis-result" style="display: none;"></div>
+                    </div>
+
+                    <!-- Evidence Upload Section -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-upload"></i> Upload Evidence</h3>
+                        <p class="section-info">Upload screenshots, documents, or any evidence related to the crime.</p>
+
+                        <div class="file-upload-area">
+                            <div id="dropZone" class="drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag &amp; drop files here or click to browse</p>
+                                <small>Supported formats: JPG, PNG, PDF, TXT (16MB total upload limit)</small>
+                                <input type="file" id="evidence_files" name="evidence_files"
+                                    multiple accept="image/*,.pdf,.txt" style="display: none;">
+                            </div>
+                            <div id="fileList" class="file-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline"
+                            onclick="window.location.href='dashboard.html'">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Complaint
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Safety Tips Sidebar -->
+                <div class="safety-tips">
+                    <div class="tips-card">
+                        <h4><i class="fas fa-lightbulb"></i> Safety Tips</h4>
+                        <p id="safetyTipsStatus" role="status">
+                            Choose a crime type and describe the incident, then click
+                            Analyze with AI to get tailored tips.
+                        </p>
+                        <ul id="safetyTipsList"></ul>
+                        <p id="safetyTipsSource" class="analysis-source"></p>
+                    </div>
+
+                    <div class="tips-card">
+                        <h4><i class="fas fa-phone-alt"></i> Emergency Helplines</h4>
+                        <ul>
+                            <li><strong>Cyber Helpline:</strong> 1930</li>
+                            <li><strong>National Police Helpline:</strong> 112</li>
+                            <li><strong>Women Helpline:</strong> 1091</li>
+                            <li><strong>Child Helpline:</strong> 1098</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="complaintSuccessModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Complaint Filed Successfully!</h3>
+                <span class="close" onclick="closeModal(this.closest('.modal'))">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Your complaint has been registered successfully.</p>
+                <div class="complaint-number-box">
+                    <strong>Complaint Number:</strong>
+                    <span id="complaintNumber"></span>
+                </div>
+                <p class="small">Please save this complaint number for tracking purposes.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="trackSubmittedComplaint" type="button" class="btn btn-primary">
+                    Track Complaint
+                </button>
+                <button class="btn btn-outline" onclick="closeModal(this.closest('.modal'))">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .report-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+            min-height: calc(100vh - 200px);
+        }
+
+        .report-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .report-header h1 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .report-header h1 i {
+            color: var(--danger-color);
+            margin-right: 10px;
+        }
+
+        .report-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .report-form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .form-section h3 i {
+            margin-right: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .required {
+            color: var(--danger-color);
+        }
+
+        .form-text {
+            font-size: 0.75rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+            display: block;
+        }
+
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.75rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .section-info {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+
+        .file-upload-area {
+            margin-top: 15px;
+        }
+
+        .drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .drop-zone:hover,
+        .drop-zone.drag-over {
+            border-color: var(--primary-color);
+            background: rgba(44, 125, 160, 0.05);
+        }
+
+        .drop-zone i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .file-list {
+            margin-top: 15px;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: var(--light-color);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .file-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .remove-file {
+            background: none;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .ai-analysis-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .analysis-item label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--gray-color);
+        }
+
+        .severity-high,
+        .severity-critical {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+
+        .severity-medium {
+            color: var(--warning-color);
+            font-weight: bold;
+        }
+
+        .severity-low {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .analysis-suggestions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .analysis-suggestions li {
+            margin: 8px 0;
+        }
+
+        .analysis-suggestions li i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .safety-tips {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .tips-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .tips-card h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tips-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips-card li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .tips-card li i {
+            color: var(--success-color);
+            margin-right: 10px;
+        }
+
+        .analysis-source {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-top: 10px;
+        }
+
+        .complaint-number-box {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .complaint-number-box span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-form {
+                padding: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/crime-report.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Complaints - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="report-crime.html">Report Crime</a></li>
+                    <li><a href="my-complaints.html" class="active">My Complaints</a></li>
+                    <li><a href="ai-insights.html">AI Insights</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth"></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- My Complaints Section -->
+    <section class="complaints-section">
+        <div class="container">
+            <div class="complaints-header">
+                <h1><i class="fas fa-file-alt"></i> My Complaints</h1>
+                <p>Track and manage all your cyber crime complaints</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label for="statusFilter"><i class="fas fa-filter"></i> Filter by Status:</label>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">All Complaints</option>
+                        <option value="pending">Pending</option>
+                        <option value="under_review">Under Review</option>
+                        <option value="investigating">Investigating</option>
+                        <option value="resolved">Resolved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-outline btn-sm" onclick="loadMyComplaints()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <a href="report-crime.html" class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> New Complaint
+                    </a>
+                </div>
+            </div>
+
+            <!-- Complaints Container -->
+            <div id="myComplaintsContainer" class="complaints-container">
+                <div class="loading-state">
+                    <div class="loader"></div>
+                    <p>Loading your complaints...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .complaints-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .complaints-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .complaints-header h1 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .complaints-header h1 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .filters-bar {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .filter-select {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-sm {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+        }
+        
+        .complaints-container {
+            min-height: 400px;
+        }
+        
+        .complaints-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .complaint-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .complaint-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .complaint-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .complaint-id {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        
+        .complaint-type {
+            background: var(--light-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .complaint-card-body {
+            margin-bottom: 15px;
+        }
+        
+        .complaint-card-body p {
+            color: var(--gray-color);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .complaint-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.8rem;
+            color: var(--gray-color);
+        }
+        
+        .complaint-meta i {
+            margin-right: 5px;
+        }
+        
+        .complaint-card-footer {
+            display: flex;
+            gap: 10px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .pagination button {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination span {
+            color: var(--gray-color);
+        }
+        
+        .loading-state {
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 15px;
+        }
+        
+        .empty-state i {
+            font-size: 80px;
+            color: var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .filters-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+            
+            .filter-select {
+                flex: 1;
+            }
+            
+            .complaint-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .complaint-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .complaint-card-footer {
+                flex-direction: column;
+            }
+            
+            .complaint-card-footer .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/complaint-track.js"></script>
+</body>
+</html>

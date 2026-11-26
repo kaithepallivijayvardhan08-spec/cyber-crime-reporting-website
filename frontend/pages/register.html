@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="awareness.html">Awareness</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary active">Register</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <i class="fas fa-user-plus"></i>
+                        <h2>Create Account</h2>
+                        <p>Join CyberSafe to submit and track cybercrime reports</p>
+                    </div>
+
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="full_name">
+                                <i class="fas fa-user"></i> Full Name
+                            </label>
+                            <input
+                                type="text"
+                                id="full_name"
+                                name="full_name"
+                                required
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email Address
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                            >
+                            <small class="form-text">We'll never share your email with anyone else.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Phone Number
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                required
+                                placeholder="10-digit Indian mobile number"
+                                autocomplete="tel"
+                                inputmode="numeric"
+                                pattern="[6-9][0-9]{9}"
+                                minlength="10"
+                                maxlength="10"
+                                title="Enter 10 digits starting with 6, 7, 8, or 9."
+                            >
+                            <small class="form-text">
+                                Enter a valid 10-digit Indian mobile number.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i> Password
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    required
+                                    placeholder="Create a password"
+                                    autocomplete="new-password"
+                                >
+                                <button
+                                    type="button"
+                                    class="toggle-password"
+                                    onclick="togglePasswordVisibility('password')"
+                                    aria-label="Show or hide password"
+                                >
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="form-text">
+                                Use at least 6 characters, including an uppercase letter and a number.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">
+                                <i class="fas fa-check-circle"></i> Confirm Password
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input
+                                    type="password"
+                                    id="confirm_password"
+                                    name="confirm_password"
+                                    required
+                                    placeholder="Confirm your password"
+                                >
+                                <button
+                                    type="button"
+                                    class="toggle-password"
+                                    onclick="togglePasswordVisibility('confirm_password')"
+                                    aria-label="Show or hide password"
+                                >
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span>
+                                    I agree to the
+                                    <a href="#" class="terms-link">Terms of Service</a>
+                                    and
+                                    <a href="#" class="terms-link">Privacy Policy</a>
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-user-plus"></i> Register
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Login here</a></p>
+                    </div>
+
+                    <div class="auth-divider">
+                        <span>Why Register?</span>
+                    </div>
+
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>File cyber crime complaints online</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>View complaint status and update history</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Get AI-assisted crime classification when available</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Account and complaint access controls</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .form-text {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+
+        .benefits {
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .benefit-item i {
+            color: var(--success-color);
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .terms-link {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+
+        .auth-section {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .auth-container {
+            max-width: 550px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 40px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header i {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .auth-form label i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .auth-form input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.1);
+        }
+
+        .password-input-wrapper {
+            position: relative;
+        }
+
+        .password-input-wrapper input {
+            padding-right: 45px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-color);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-label input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .auth-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .auth-divider::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .auth-divider span {
+            background: white;
+            padding: 0 15px;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/api.js"></script>
+
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+
+            const button = input.nextElementSibling;
+            const icon = button?.querySelector('i');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon?.classList.remove('fa-eye');
+                icon?.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon?.classList.remove('fa-eye-slash');
+                icon?.classList.add('fa-eye');
+            }
+        }
+
+        // Allow digits only; auth.js validates the number when submitted.
+        document.getElementById('phone')?.addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+
+        document.getElementById('password')?.addEventListener('input', function () {
+            const strength = checkPasswordStrength(this.value);
+            updatePasswordStrength(strength);
+        });
+
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            if (password.length >= 6) strength++;
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^a-zA-Z0-9]/.test(password)) strength++;
+            return strength;
+        }
+
+        function updatePasswordStrength(strength) {
+            const existingIndicator =
+                document.querySelector('.password-strength');
+            if (existingIndicator) existingIndicator.remove();
+
+            const passwordInput = document.getElementById('password');
+            if (!passwordInput) return;
+
+            const wrapper = passwordInput.parentElement;
+            const indicator = document.createElement('div');
+            indicator.className = 'password-strength';
+            indicator.style.marginTop = '5px';
+
+            const strengths = ['Weak', 'Fair', 'Good', 'Strong', 'Very Strong'];
+            const colors = ['#e63946', '#f4a261', '#e9c46a', '#2a9d8f', '#2c7da0'];
+
+            if (strength > 0) {
+                indicator.innerHTML = `
+                    <div style="height: 3px; background: ${colors[strength - 1]}; width: ${strength * 20}%; transition: all 0.3s;"></div>
+                    <small style="color: ${colors[strength - 1]}">${strengths[strength - 1]}</small>
+                `;
+                wrapper.appendChild(indicator);
+            }
+        }
+    </script>
+</body>
+</html>

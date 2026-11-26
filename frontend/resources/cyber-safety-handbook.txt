@@ -1,0 +1,35 @@
+CYBERSAFE - CYBER SAFETY HANDBOOK
+Educational quick guide | CyberSafe academic prototype
+
+1. Protect your accounts
+- Use a different, long password for each important account.
+- Turn on two-step verification where it is offered.
+- Never share a password, PIN, or one-time password with anyone.
+- Do not approve a login or payment request you did not start.
+
+2. Check messages and links
+- Look closely at the sender, web address, spelling, and unexpected urgency.
+- Do not open unexpected attachments or sign in through a message link.
+- Contact the organisation using its official app, website, or phone number.
+- A padlock or familiar logo alone does not prove a message is genuine.
+
+3. Pay safely
+- Use the official bank or payment app and check the payee before confirming.
+- A UPI PIN is used to send money; do not enter it to receive money.
+- Never scan a QR code or approve a collect request just because someone asks.
+- Turn on transaction alerts and contact your bank quickly about an unknown debit.
+
+4. Keep devices safer
+- Install operating-system and app updates from official sources.
+- Use a screen lock and back up important files.
+- Avoid sensitive transactions on public Wi-Fi; use your mobile network if possible.
+- Install apps only from trusted stores and review app permissions.
+
+5. Protect personal information
+- Share less personal and location information publicly.
+- Review account privacy and recovery settings regularly.
+- Be careful with friend requests, impersonation, and requests for private photos.
+
+If you think a cybercrime has happened, save relevant messages, URLs, transaction details, and dates. Do not edit the original evidence. For incidents in India, use the official National Cyber Crime Reporting Portal: https://www.cybercrime.gov.in/ . For financial cyber fraud, report promptly through the official helpline 1930 and contact your bank/payment provider.
+
+This student project guide is general awareness information, not legal or investigative advice.

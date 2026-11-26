@@ -1,0 +1,21 @@
+CYBERSAFE - INCIDENT RESPONSE CHECKLIST
+General steps after a suspected cyber incident | India
+
+IMMEDIATELY
+[ ] If money or a payment account is involved, contact your bank/payment provider using its official app or number. Ask about blocking the affected card/account and disputing an unauthorised transaction.
+[ ] For financial cyber fraud in India, call 1930 as soon as possible and use https://www.cybercrime.gov.in/ . Keep the acknowledgement/reference number.
+[ ] If an account is compromised, change its password from a trusted device. Change reused passwords elsewhere and enable two-step verification.
+[ ] If a device may be infected, disconnect it from Wi-Fi/mobile data. Do not wipe it if evidence may be needed; ask a trusted technician or authority for help.
+
+PRESERVE DETAILS
+[ ] Note the date, time, account/service, amount, and what happened.
+[ ] Save original emails/messages, sender details, URLs, screenshots, transaction IDs/UTR, and bank alerts.
+[ ] Keep copies in a safe place. Do not alter or forward suspicious links to others.
+[ ] Do not pay a person who promises guaranteed recovery of money or files.
+
+REPORT AND FOLLOW UP
+[ ] Report through the official National Cyber Crime Reporting Portal: https://www.cybercrime.gov.in/ .
+[ ] Follow instructions from your bank, the portal, and local police/authorities.
+[ ] Use CyberSafe only to practise complaint submission and tracking in this academic prototype. A report here is not sent to police or government services.
+
+This checklist is general guidance. Follow official instructions for your case.

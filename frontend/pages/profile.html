@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - CyberSafe</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo.png" alt="CyberSafe Logo" class="logo" onerror="this.hidden=true; this.nextElementSibling.hidden=false"><i class="fas fa-shield-alt logo logo-fallback" aria-hidden="true" hidden></i>
+                <h2>CyberSafe</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="report-crime.html">Report Crime</a></li>
+                    <li><a href="my-complaints.html">My Complaints</a></li>
+                    <li><a href="profile.html" class="active">Profile</a></li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth"></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <h1><i class="fas fa-user-circle"></i> My Profile</h1>
+                <p>Manage your account information and security settings</p>
+            </div>
+
+            <div class="profile-container">
+                <!-- Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <h3 id="profile_full_name">User Name</h3>
+                        <p id="profile_email">user@example.com</p>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Member Since</span>
+                            <span class="stat-value" id="profile_joined">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Account Status</span>
+                            <span class="stat-value status-active">Active</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Role</span>
+                            <span class="stat-value" id="profile_role">User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="profile-content">
+                    <!-- Personal Information Tab -->
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                        <button class="tab-btn" data-tab="security">Security</button>
+                        <button class="tab-btn" data-tab="activity">Activity</button>
+                    </div>
+
+                    <!-- Personal Info Tab Content -->
+                    <div id="personalTab" class="tab-content active">
+                        <form id="profileForm" class="profile-form">
+                            <div class="form-group">
+                                <label for="full_name">Full Name</label>
+                                <input type="text" id="full_name" name="full_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" disabled>
+                                <small>Email cannot be changed</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Update Profile
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Security Tab Content -->
+                    <div id="securityTab" class="tab-content">
+                        <form id="passwordForm" class="profile-form">
+                            <div class="form-group">
+                                <label for="current_password">Current Password</label>
+                                <input type="password" id="current_password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="new_password">New Password</label>
+                                <input type="password" id="new_password" required>
+                                <small>Minimum 6 characters</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm New Password</label>
+                                <input type="password" id="confirm_password" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-key"></i> Change Password
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Two-Factor Authentication -->
+                        <div class="security-section">
+                            <h4><i class="fas fa-shield-alt"></i> Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security to your account</p>
+                            <button class="btn btn-outline" onclick="setup2FA()">
+                                <i class="fas fa-mobile-alt"></i> Setup 2FA
+                            </button>
+                        </div>
+
+                        <!-- Session Management -->
+                        <div class="security-section">
+                            <h4><i class="fas fa-desktop"></i> Active Sessions</h4>
+                            <div class="sessions-list">
+                                <div class="session-item">
+                                    <div>
+                                        <i class="fas fa-chrome"></i>
+                                        <strong>Chrome on Windows</strong>
+                                        <p>Current session • Last active now</p>
+                                    </div>
+                                    <span class="badge badge-success">Active</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-sm" onclick="logoutAllDevices()">
+                                <i class="fas fa-sign-out-alt"></i> Logout from all devices
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Activity Tab Content -->
+                    <div id="activityTab" class="tab-content">
+                        <div class="activity-list" id="activityList">
+                            <div class="loading">Loading activity...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Change Password Success Modal -->
+    <div id="passwordSuccessModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Password Changed</h3>
+                <span class="close" onclick="closeModal(document.getElementById('passwordSuccessModal'))">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Your password has been changed successfully.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal(document.getElementById('passwordSuccessModal'))">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>CyberSafe</h3>
+                    <p>India's leading platform for cyber crime reporting and awareness.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="awareness.html">Awareness</a></li>
+                        <li><a href="track-complaint.html">Track Complaint</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> Cyber Helpline: 1930</p>
+                    <p><i class="fas fa-envelope"></i> help@cybersafe.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CyberSafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .profile-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-header h1 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .profile-header h1 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .profile-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+        
+        .profile-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .profile-avatar i {
+            font-size: 100px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .profile-avatar h3 {
+            margin-bottom: 5px;
+        }
+        
+        .profile-avatar p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .profile-stats {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .stat-label {
+            color: var(--gray-color);
+        }
+        
+        .stat-value {
+            font-weight: 500;
+        }
+        
+        .status-active {
+            color: var(--success-color);
+        }
+        
+        .profile-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--gray-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .tab-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .profile-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .profile-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .profile-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .profile-form input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .profile-form input:disabled {
+            background: var(--light-color);
+            cursor: not-allowed;
+        }
+        
+        .profile-form small {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+        
+        .form-actions {
+            margin-top: 25px;
+        }
+        
+        .security-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .security-section h4 {
+            margin-bottom: 10px;
+        }
+        
+        .security-section h4 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .security-section p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .sessions-list {
+            margin: 15px 0;
+        }
+        
+        .session-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: var(--light-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .session-item i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .session-item p {
+            margin: 5px 0 0 25px;
+            font-size: 0.8rem;
+        }
+        
+        .activity-list {
+            min-height: 300px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-icon i {
+            color: var(--primary-color);
+        }
+        
+        .activity-details {
+            flex: 1;
+        }
+        
+        .activity-title {
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--gray-color);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-sidebar {
+                position: static;
+            }
+            
+            .profile-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab switching
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.dataset.tab;
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`${tabId}Tab`).classList.add('active');
+                });
+            });
+            
+            // Load profile data
+            loadProfile();
+            
+            // Load activity
+            loadActivity();
+        });
+        
+        async function loadActivity() {
+            const activityList = document.getElementById('activityList');
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/activity`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    displayActivity(data.activities);
+                } else {
+                    displaySampleActivity();
+                }
+            } catch (error) {
+                displaySampleActivity();
+            }
+        }
+        
+        function displayActivity(activities) {
+            const container = document.getElementById('activityList');
+            if (!activities || activities.length === 0) {
+                container.innerHTML = '<p class="no-data">No recent activity found</p>';
+                return;
+            }
+            
+            container.innerHTML = activities.map(activity => `
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas ${getActivityIcon(activity.type)}"></i>
+                    </div>
+                    <div class="activity-details">
+                        <div class="activity-title">${activity.title}</div>
+                        <div class="activity-time">${formatDateTime(activity.created_at)}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function displaySampleActivity() {
+            const sampleActivities = [
+                { type: 'login', title: 'Logged in from Chrome on Windows', created_at: new Date().toISOString() },
+                { type: 'complaint', title: 'Filed new complaint #CYS202401001', created_at: new Date(Date.now() - 86400000).toISOString() },
+                { type: 'profile', title: 'Updated profile information', created_at: new Date(Date.now() - 172800000).toISOString() }
+            ];
+            displayActivity(sampleActivities);
+        }
+        
+        function getActivityIcon(type) {
+            const icons = {
+                'login': 'fa-sign-in-alt',
+                'complaint': 'fa-file-alt',
+                'profile': 'fa-user-edit',
+                'password': 'fa-key'
+            };
+            return icons[type] || 'fa-circle';
+        }
+        
+        function setup2FA() {
+            showNotification('2FA setup will be available soon!', 'info');
+        }
+        
+        async function logoutAllDevices() {
+            if (!confirm('This will sign you out on every device. Continue?')) return;
+
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${AUTH_API_URL}/logout-all`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (!response.ok) throw new Error('Session revocation failed');
+
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+            } catch (error) {
+                showNotification('Could not sign out all devices. Please try again.', 'danger');
+            }
+        }
+        
+        window.setup2FA = setup2FA;
+        window.logoutAllDevices = logoutAllDevices;
+    </script>
+</body>
+</html>
