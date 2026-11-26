@@ -62,8 +62,9 @@
 | 20 | [Current Limitations](#-20-current-limitations) |
 | 21 | [Future Improvements](#-21-future-improvements) |
 | 22 | [Academic Project Information](#-22-academic-project-information) |
-| 23 | [Official Cybercrime Resources](#-23-official-cybercrime-resources) |
-| 24 | [A Personal Note](#-24-a-personal-note) |
+| 23 | [Research Publication](#-23-research-publication) |
+| 24 | [Official Cybercrime Resources](#-24-official-cybercrime-resources) |
+| 25 | [A Personal Note](#-25-a-personal-note) |
 
 ---
 
@@ -2153,7 +2154,26 @@ The project is intended for academic learning, demonstration and further experim
 
 ---
 
-# 🌍 23. OFFICIAL CYBERCRIME RESOURCES
+# 📄 23. RESEARCH PUBLICATION
+
+The project author has reported a research publication with the **International Research Journal of Modernization in Engineering Technology and Science (IRJMETS)**.
+
+| Detail | Information |
+|---|---|
+| Journal Name | International Research Journal of Modernization in Engineering Technology and Science |
+| Abbreviation | IRJMETS |
+| e-ISSN | 2582-5208 |
+| Journal Website | [https://www.irjmets.com/](https://www.irjmets.com/) |
+| Paper Title | To be added after confirming the exact published title |
+| Article URL / DOI | To be added after confirming the individual article record |
+
+**Verification note:** The journal's registered name and e-ISSN can be checked through the [ISSN International Centre](https://portal.issn.org/). Registration confirms the journal's identity; it does not by itself establish the quality of peer review, indexing status or academic accreditation. Readers should consult the individual article record for its publication date, volume, issue, DOI and publisher-specific terms.
+
+**Publication rights:** The research paper is separate from this software repository. Its copyright and reuse permissions are governed by the terms stated by the journal or publisher for that specific article.
+
+---
+
+# 🌍 24. OFFICIAL CYBERCRIME RESOURCES
 
 For actual cybercrime incidents in India, use official reporting channels.
 
@@ -2168,7 +2188,7 @@ For actual cybercrime incidents in India, use official reporting channels.
 
 ---
 
-# ❤️ 24. A PERSONAL NOTE
+# ❤️ 25. A PERSONAL NOTE
 
 CyberSafe represents my interest in combining Artificial Intelligence and Cybersecurity through practical software development.
 
@@ -2198,7 +2218,7 @@ The MIT Licence requires the copyright notice and permission notice to be includ
 
 **Copyright © 2026 Kaithepalli Vijay Vardhan.**
 
-> **Third-party materials:** Images, fonts, libraries, models and other third-party assets used by this project may have their own licences and usage conditions. The MIT Licence for this repository does not automatically relicense those materials.
+> **Scope of this licence:** The MIT Licence applies only to the software and other materials in this repository that the copyright holder is entitled to license under MIT. It does not automatically apply to the separately published research paper, journal content, or third-party images, fonts, libraries, models and other assets. Check their respective licence and copyright terms before reusing them.
 
 ---
 
