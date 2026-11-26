@@ -2164,12 +2164,20 @@ The project author has reported a research publication with the **International 
 | Abbreviation | IRJMETS |
 | e-ISSN | 2582-5208 |
 | Journal Website | [https://www.irjmets.com/](https://www.irjmets.com/) |
-| Paper Title | To be added after confirming the exact published title |
-| Article URL / DOI | To be added after confirming the individual article record |
+| Paper Title | AI-Based Cybercrime Reporting Web Application |
+| Authors | Kaithepalli Vijay Vardhan, Maddali Tarun Kumar, Nuka Praneeth and Dr. Salla Prabhakar |
+| Author Affiliations | Undergraduate students and Professor, Department of Computer Science and Engineering, Lingayas Institute of Management & Technology, Vijayawada, Andhra Pradesh, India |
+| Journal | International Research Journal of Modernization in Engineering Technology and Science (IRJMETS) |
+| e-ISSN | 2582-5208 |
+| Volume / Issue | Volume 08, Issue 06 |
+| Publication Date | June 2026 |
+| DOI | [10.56726/IRJMETS101086](https://doi.org/10.56726/IRJMETS101086) |
+| Published Article | [View the published paper (PDF)](https://www.irjmets.com/upload_newfiles/irjmets80600138377/paper_file/irjmets80600138377.pdf) |
+| Journal Website | [irjmets.com](https://www.irjmets.com/) |
 
-**Verification note:** The journal's registered name and e-ISSN can be checked through the [ISSN International Centre](https://portal.issn.org/). Registration confirms the journal's identity; it does not by itself establish the quality of peer review, indexing status or academic accreditation. Readers should consult the individual article record for its publication date, volume, issue, DOI and publisher-specific terms.
+**Publication note:** The journal's article PDF contains the title, author list, issue information and DOI shown above. The journal's stated peer-review and impact-factor labels are reproduced here as publisher-provided information; they should not be treated as independent confirmation of indexing, accreditation or research quality.
 
-**Publication rights:** The research paper is separate from this software repository. Its copyright and reuse permissions are governed by the terms stated by the journal or publisher for that specific article.
+**Publication rights:** This research paper is a separate scholarly publication, not part of the software licence for this repository. Its copyright and reuse permissions are governed by the terms stated by the journal or publisher for the article.
 
 ---
 
