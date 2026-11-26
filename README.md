@@ -2156,28 +2156,25 @@ The project is intended for academic learning, demonstration and further experim
 
 # 📄 23. RESEARCH PUBLICATION
 
-The project author has reported a research publication with the **International Research Journal of Modernization in Engineering Technology and Science (IRJMETS)**.
+The following research paper, related to the CyberSafe project, was published in the **International Research Journal of Modernization in Engineering Technology and Science (IRJMETS)**.
 
 | Detail | Information |
 |---|---|
-| Journal Name | International Research Journal of Modernization in Engineering Technology and Science |
-| Abbreviation | IRJMETS |
-| e-ISSN | 2582-5208 |
-| Journal Website | [https://www.irjmets.com/](https://www.irjmets.com/) |
-| Paper Title | AI-Based Cybercrime Reporting Web Application |
+| Paper Title | **AI-Based Cybercrime Reporting Web Application** |
 | Authors | Kaithepalli Vijay Vardhan, Maddali Tarun Kumar, Nuka Praneeth and Dr. Salla Prabhakar |
-| Author Affiliations | Undergraduate students and Professor, Department of Computer Science and Engineering, Lingayas Institute of Management & Technology, Vijayawada, Andhra Pradesh, India |
+| Author Contributions / Affiliations | The first three authors are undergraduate students; the fourth author is a Professor, Department of Computer Science and Engineering, Lingayas Institute of Management & Technology, Vijayawada, Andhra Pradesh, India |
 | Journal | International Research Journal of Modernization in Engineering Technology and Science (IRJMETS) |
 | e-ISSN | 2582-5208 |
 | Volume / Issue | Volume 08, Issue 06 |
 | Publication Date | June 2026 |
 | DOI | [10.56726/IRJMETS101086](https://doi.org/10.56726/IRJMETS101086) |
-| Published Article | [View the published paper (PDF)](https://www.irjmets.com/upload_newfiles/irjmets80600138377/paper_file/irjmets80600138377.pdf) |
-| Journal Website | [irjmets.com](https://www.irjmets.com/) |
+| Published Paper | [Read the published paper (PDF)](https://www.irjmets.com/upload_newfiles/irjmets80600138377/paper_file/irjmets80600138377.pdf) |
+| Journal Website | [https://www.irjmets.com/](https://www.irjmets.com/) |
+| Impact Factor | 8.187, as stated in the journal's publication material |
 
-**Publication note:** The journal's article PDF contains the title, author list, issue information and DOI shown above. The journal's stated peer-review and impact-factor labels are reproduced here as publisher-provided information; they should not be treated as independent confirmation of indexing, accreditation or research quality.
+**Verification and attribution:** The individual article is available through the journal's website and displays the title, author list, issue details and DOI above. The journal's e-ISSN record can also be checked through the [ISSN International Centre](https://portal.issn.org/resource/ISSN-L/2582-5208). The impact factor and peer-review description are reproduced as publisher-provided claims; they are not presented here as independent proof of academic accreditation, indexing quality or research standing.
 
-**Publication rights:** This research paper is a separate scholarly publication, not part of the software licence for this repository. Its copyright and reuse permissions are governed by the terms stated by the journal or publisher for the article.
+**Publication rights:** This research paper is a separate scholarly publication and is not covered by this repository's MIT software licence. The journal's published terms describe a CC BY arrangement for articles where the required author agreement applies. Check the specific article's copyright notice or signed publication agreement before reusing or redistributing the paper.
 
 ---
 
